@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const mongoUri = process.env.MONGO_URI || "mongodb+srv://sireesha2622:Prash0204@cluster0.ekefhyn.mongodb.net/task9?retryWrites=true&w=majority&appName=Cluster0&authSource=admin";
+const mongoUri = process.env.MONGO_URI || "mongodb+srv://sireesha2622:****4@cluster0.ekefhyn.mongodb.net/task9?retryWrites=true&w=majority&appName=Cluster0&authSource=admin";
 
 app.use(express.json());
 
