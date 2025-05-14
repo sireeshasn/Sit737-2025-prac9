@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task9-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task9-app
+  template:
+    metadata:
+      labels:
+        app: task9-app
+    spec:
+      containers:
+      - name: task9-app
+        image: sireeshasn/task9-node-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              name: mongo-uri-secret
+              key: uri

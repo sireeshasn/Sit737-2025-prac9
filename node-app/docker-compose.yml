@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  book-app:
+    build: .
+    container_name: book-library-app
+    ports:
+      - "3001:3000"
+    restart: always
+    environment:
+      MONGO_URI: mongodb+srv://sireesha2622:Prash0204@cluster0.ekefhyn.mongodb.net/task9?retryWrites=true&w=majority&appName=Cluster0&authSource=admin
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  app-network:
+    driver: bridge
